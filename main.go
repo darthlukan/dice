@@ -23,6 +23,7 @@ func main() {
 	app := cli.NewApp()
 	app.Name = "dice"
 	app.Version = "0.0.1"
+	app.Usage = "Roll the dice, I dare ya'!"
 	app.Authors = []cli.Author{cli.Author{
 		Name:  "Brian Tomlinson",
 		Email: "darthlukan@gmail.com",
