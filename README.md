@@ -14,6 +14,26 @@
 > having to whip out your dice bag, then this is definitely the tool for you.
 
 
+## Installation
+
+```
+    $ go get github.com/darthlukan/dice
+```
+
+
+## Usage
+
+```
+    $ dice -q 4 -s 4
+    >> 4d4 roll result: 9
+
+    $ dice --qty 2 --sides 6
+    >> 2d6 roll result: 7
+```
+
+> See ```dice --help``` for more info.
+
+
 ## License
 
 > WTFPL, see LICENSE file.
