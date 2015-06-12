@@ -3,18 +3,9 @@ package main
 import (
 	"fmt"
 	"github.com/codegangsta/cli"
-	"math/rand"
+	"github.com/darthlukan/dice/roll"
 	"os"
-	"time"
 )
-
-func randomInt64(n int64) int64 {
-	// rand.Int63n panics if n == 0
-	if n == 0 {
-		n = 1
-	}
-	return rand.Int63n(n) + 1 // Never want to return zero
-}
 
 func sidesAreValid(sides int64) bool {
 	validSides := []int64{4, 6, 8, 10, 12, 20}
@@ -24,18 +15,6 @@ func sidesAreValid(sides int64) bool {
 		}
 	}
 	return false
-}
-
-func Roll(sides, qty int64) int64 {
-	var val int64
-	for i := int64(1); i <= qty; i++ {
-		val += randomInt64(sides)
-	}
-	return val
-}
-
-func init() {
-	rand.Seed(time.Now().UTC().UnixNano())
 }
 
 func main() {
@@ -64,7 +43,7 @@ func main() {
 		qty := int64(c.Int("qty"))
 
 		if sidesAreValid(sides) && qty >= 1 {
-			result := Roll(sides, qty)
+			result := roll.Roll(sides, qty)
 			fmt.Printf("%vd%v roll result: %v\n", qty, sides, result)
 		} else {
 			fmt.Printf("Please see 'dice --help' for usage assistance.\n")
